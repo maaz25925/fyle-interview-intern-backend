@@ -1,8 +1,6 @@
-import random
-import string
-from datetime import datetime
+from datetime import datetime, timezone
 
-TIMESTAMP_WITH_TIMEZONE_FORMAT = '%Y-%m-%dT%H:%M:%S.%f%z'
+TIMESTAMP_WITH_TIMEZONE_FORMAT = "%Y-%m-%dT%H:%M:%S.%f%z"
 
 
 class GeneralObject:
@@ -12,4 +10,7 @@ class GeneralObject:
 
 
 def get_utc_now():
-    return datetime.utcnow()
+    """Returns current utc time with timezone"""
+    return datetime.now(timezone.utc)
+    # Deprecated code
+    # return datetime.utcnow()

@@ -1,5 +1,8 @@
 # Fyle Backend Challenge
 
+## Test case result and code coverage
+![code-coverage-tests](./code-coverage-tests.png)
+
 ## Who is this for?
 
 This challenge is meant for candidates who wish to intern at Fyle and work with our engineering team. You should be able to commit to at least 6 months of dedicated time for internship.
@@ -50,9 +53,10 @@ bash run.sh
 ### Run Tests
 
 ```
-pytest -vvv -s tests/
+bash test.sh
+```
 
-# for test coverage report
-# pytest --cov
-# open htmlcov/index.html
+### Run docker
+```
+docker compose up
 ```

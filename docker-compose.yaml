@@ -1,0 +1,29 @@
+version: "3"
+services:
+  sqlitebrowser:
+    image: lscr.io/linuxserver/sqlitebrowser:latest
+    container_name: classroom-api
+    security_opt:
+      - seccomp:unconfined #optional
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    volumes:
+      - db-data:/data
+    ports:
+      - 1751:1751
+    restart: unless-stopped
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
+    depends_on:
+      - sqlitebrowser
+volumes:
+  db-data:
+    driver: local
